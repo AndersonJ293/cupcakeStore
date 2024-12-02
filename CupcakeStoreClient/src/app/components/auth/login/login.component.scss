@@ -33,10 +33,11 @@
       border-radius: $border-radius;
       font-size: $font-size-base;
       font-family: $font-family;
+      color: $text-vr-color;
       outline: none;
-
+      background-color: $primary-color;
       &:focus {
-        border-color: $link-color;
+        border-color: $text-color;
       }
     }
 
@@ -52,7 +53,7 @@
       margin-top: $spacing-md;
 
       &:hover {
-        background-color: $link-color;
+        background-color: $text-color;
       }
     }
 
@@ -66,7 +67,7 @@
 
       button {
         background: none;
-        color: $link-color;
+        color: $text-color;
         border: none;
         font-size: $font-size-small;
         padding: 0;

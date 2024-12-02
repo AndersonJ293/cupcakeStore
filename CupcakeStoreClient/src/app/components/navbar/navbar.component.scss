@@ -1,4 +1,5 @@
 @import "styles";
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&family=Oleo+Script:wght@400;700&display=swap");
 
 .navbar {
   display: flex;
@@ -6,23 +7,31 @@
   justify-content: space-between;
   padding: $spacing-md;
   background-color: $primary-color;
-  color: white;
+  color: $link-color;
   border-radius: 16px;
+  height: 80px;
   position: relative;
 
   .logo {
+    display: flex;
+    font-family: "Marck Script", cursive;
+    align-items: center;
+    height: 100%;
     font-size: $font-size-heading;
     font-weight: 600;
+    cursor: pointer;
+    img {
+      height: 90%;
+      margin-right: 20px;
+    }
   }
 
   .nav-items {
     display: flex;
-    color: white;
     gap: 16px;
     align-items: center;
 
     a {
-      color: white;
       font-weight: 500;
       cursor: pointer;
       text-decoration: none;
@@ -60,14 +69,12 @@
     .cart-icon {
       position: relative;
       font-size: 24px;
-      color: white;
 
       .cart-count {
         position: absolute;
         top: -5px;
         right: -5px;
         background-color: red;
-        color: white;
         border-radius: 50%;
         padding: 5px;
         font-size: 12px;
@@ -76,20 +83,19 @@
     }
 
     button {
-      background-color: transparent;
-      color: white;
+      background-color: $primary-color;
       border: none;
       border-radius: 8px;
       padding: 8px 16px;
       cursor: pointer;
+      color: $link-color;
       font-size: 14px;
       font-weight: 600;
-      border: 1px solid white;
+      border: 1px solid $link-color;
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: lighten($secondary-color, 90%);
-        color: $primary-color;
+        background-color: lighten($primary-color, 15%);
       }
     }
   }

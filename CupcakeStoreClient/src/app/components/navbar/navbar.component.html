@@ -1,5 +1,8 @@
 <div class="navbar">
-  <div class="logo" onclick="">Arte e Açúcar</div>
+  <div class="logo" routerLink="/home">
+    <img src="../../../assets/logo.svg" alt="" />
+    <span>Arte e Açúcar</span>
+  </div>
 
   <div class="nav-items" [class.active]="isMenuOpen">
     <a *ngIf="isLoggedIn()" (click)="navigateToProfile()">Perfil</a>
