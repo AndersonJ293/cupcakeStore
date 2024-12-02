@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PaymentMethod } from '../enuns/payment-method.enum';
-import { Order } from '../dto/order_dto';
+import { environment } from '../../../environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
@@ -13,8 +13,6 @@ export class OrderService {
 
   getOrders(): Observable<any[]> {
     const id = this.authService.getUser()?.id;
-    return this.http.get<any[]>(
-      `https://localhost:7046/api/pedido/usuario/${id}`
-    );
+    return this.http.get<any[]>(`${environment.apiUrl}/pedido/usuario/${id}`);
   }
 }

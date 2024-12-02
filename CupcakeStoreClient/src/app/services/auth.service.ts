@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { UserTokenDTO } from '../dto/user_token_dto';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class AuthService {
       token: string;
       refreshToken: string;
       expiration: Date;
-    }>('https://localhost:7046/api/auth/login/', {
+    }>(`${environment.apiUrl}/auth/login/`, {
       email,
       password,
     });
@@ -31,7 +32,7 @@ export class AuthService {
     password: string
   ): Observable<{ status: string; message: string }> {
     return this.http.post<{ status: string; message: string }>(
-      'https://localhost:7046/api/auth/register/',
+      `${environment.apiUrl}/auth/register/`,
       {
         email,
         password,

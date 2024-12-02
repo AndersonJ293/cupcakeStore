@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CartService } from './cart.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
 import { Product } from '../dto/product_dto';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root',
@@ -76,6 +76,6 @@ export class CheckoutService {
       })),
     };
 
-    return this.http.post('https://localhost:7046/api/Pedido', order);
+    return this.http.post(`${environment.apiUrl}/Pedido`, order);
   }
 }

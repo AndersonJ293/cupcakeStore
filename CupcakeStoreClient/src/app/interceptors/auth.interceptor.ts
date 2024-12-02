@@ -18,7 +18,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   if (userTokenDTO.expiration > new Date()) {
     http
-      .post('https://localhost:7046/api/auth/refresh-token/', {
+      .post('${environment.apiUrl}auth/refresh-token/', {
         accessToken: userTokenDTO.token,
         refreshToken: userTokenDTO.refreshToken,
       })
