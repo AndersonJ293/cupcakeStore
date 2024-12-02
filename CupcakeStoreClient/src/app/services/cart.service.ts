@@ -56,7 +56,8 @@ export class CartService {
       );
 
       if (productIndex > -1) {
-        cart[productIndex].quantity = qtd;
+        cart[productIndex].quantity =
+          qtd <= cart[productIndex].estoque ? qtd : cart[productIndex].quantity;
         localStorage.setItem(this.cartKey, JSON.stringify(cart));
       }
     } else {
