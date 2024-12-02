@@ -21,6 +21,8 @@ export class OrderComponent {
   ngOnInit(): void {
     this.orderService.getOrders().subscribe((response) => {
       this.orders = response;
+      console.log(this.orders);
+
       this.isOpen = this.orders.map(() => false);
     });
   }

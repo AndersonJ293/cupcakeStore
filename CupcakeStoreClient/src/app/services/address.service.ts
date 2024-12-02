@@ -13,7 +13,7 @@ export class AddressService {
   getAddresses(): Observable<any> {
     const userId = this.authService.getUser()?.id;
 
-    return this.http.get(`${environment.apiUrl}/Endereco/${userId}`);
+    return this.http.get(`${environment.apiUrl}/Endereco/usuario/${userId}`);
   }
 
   addAddress(newAddress: any): Observable<any> {

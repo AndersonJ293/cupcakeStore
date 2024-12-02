@@ -1,7 +1,11 @@
 @import "styles";
 
+.container {
+  width: 100dvw;
+  padding: 16px;
+}
 .order-container {
-  background-color: $background-color;
+  background-color: $primary-color;
   margin: $spacing-md 0;
   padding: $spacing-md;
   border-radius: $border-radius;
@@ -13,7 +17,7 @@
     display: flex;
     cursor: pointer;
     font-size: $font-size-base;
-    color: $primary-color;
+    color: $text-vr-color;
     position: relative;
     width: 100%;
 
@@ -159,7 +163,7 @@
   .accordion-toggle {
     background-color: transparent;
     border: none;
-    color: $link-color;
+    color: $text-vr-color;
     cursor: pointer;
     font-size: $font-size-base;
     text-align: left;
@@ -172,7 +176,7 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: lighten($primary-color, 5%);
     }
 
     .arrow {

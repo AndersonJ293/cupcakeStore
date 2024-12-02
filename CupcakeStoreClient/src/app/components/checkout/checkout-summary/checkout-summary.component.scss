@@ -16,9 +16,9 @@
     .payment-methods {
       margin-bottom: $spacing-md;
       padding: $spacing-md;
-      background-color: $secondary-color;
+      background-color: $primary-color;
       border-radius: $border-radius;
-
+      color: $text-vr-color;
       label {
         display: flex;
         align-items: center;
@@ -30,13 +30,13 @@
     }
 
     .summary-section {
-      background-color: $secondary-color;
+      background-color: $primary-color;
       padding: $spacing-md;
       margin-bottom: $spacing-md;
       border-radius: $border-radius;
 
       h2 {
-        color: $primary-color;
+        color: $text-vr-color;
         margin-bottom: $spacing-sm;
       }
 
@@ -50,7 +50,7 @@
       margin-top: $spacing-lg;
 
       h3 {
-        color: $primary-color;
+        color: $text-vr-color;
         font-weight: bold;
       }
     }
