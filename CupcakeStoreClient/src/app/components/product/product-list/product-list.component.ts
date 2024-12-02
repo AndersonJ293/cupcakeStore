@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CommonModule } from '@angular/common';
 import { DialogService } from '@ngneat/dialog';
 import { FilterDialogComponent } from '../../filter-dialog/filter-dialog.component';
 import { Product } from '../../../dto/product_dto';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [ProductCardComponent, CommonModule],
+  imports: [ProductCardComponent, CommonModule, FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  searchQuery: string = '';
+  @Input() searchQuery: string = '';
 
   constructor(
     private productService: ProductService,
@@ -28,11 +29,15 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  filteredProducts() {
+  get filteredProducts() {
+    if (this.searchQuery === '') return this.products;
+
     return this.products.filter(
       (product) =>
-        product.nome.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        product.descricao.toLowerCase().includes(this.searchQuery.toLowerCase())
+        this.toSearch(product.nome).includes(this.toSearch(this.searchQuery)) ||
+        this.toSearch(product.descricao).includes(
+          this.toSearch(this.searchQuery)
+        )
     );
   }
 
@@ -40,5 +45,16 @@ export class ProductListComponent implements OnInit {
     this.dialog.open(FilterDialogComponent, {
       width: '400px',
     });
+  }
+
+  private toSearch(text: string) {
+    let chars = ['aáàãäâ', 'eéèëê', 'iíìïî', 'oóòõöô', 'uúùüû'];
+    let value = text;
+    for (var i in chars)
+      value = value.replace(
+        new RegExp('[' + chars[i] + ']', 'g'),
+        '[' + chars[i] + ']'
+      );
+    return value.toLowerCase();
   }
 }
