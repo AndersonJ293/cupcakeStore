@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-COPY ["CupcakeStoreAPI/CupcakeStoreAPI.csproj", "CupSweetAPI/"]
+COPY ["CupcakeStoreAPI/CupcakeStoreAPI.csproj", "CupcakeStoreAPI/"]
 
 RUN dotnet restore "./CupcakeStoreAPI/CupcakeStoreAPI.csproj"
 
