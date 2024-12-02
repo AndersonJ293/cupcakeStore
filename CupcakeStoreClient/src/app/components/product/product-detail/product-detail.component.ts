@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { CartService } from '../../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { Review } from '../../../dto/review_dto';
+import { NavbarComponent } from '../../navbar/navbar.component';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NavbarComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })

@@ -1,12 +1,12 @@
 @import "styles";
 
 .container {
-  display: flex;
+  padding: 20px;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  max-width: 500px;
-  margin: auto;
+  height: 100dvh;
+  width: 100dvw;
+  overflow: auto;
 }
 
 .product-detail {
@@ -20,6 +20,7 @@
 
   img {
     width: 100%;
+    max-width: 400px;
     border-radius: $border-radius;
   }
 
